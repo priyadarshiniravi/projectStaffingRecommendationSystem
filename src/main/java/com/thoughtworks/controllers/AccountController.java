@@ -1,8 +1,8 @@
 package com.thoughtworks.controllers;
 
 import com.thoughtworks.Endpoints;
-import com.thoughtworks.models.StaffingRequest;
-import com.thoughtworks.services.StaffingRequestService;
+import com.thoughtworks.models.Account;
+import com.thoughtworks.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +15,24 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(Endpoints.STAFFING_REQUEST)
-public class StaffingRequestController {
-    private final StaffingRequestService staffingRequestService;
+@RequestMapping(Endpoints.ACCOUNT)
+public class AccountController {
+    private final AccountService accountService;
     
     @Autowired
-    public StaffingRequestController(StaffingRequestService staffingRequestService) {
-        this.staffingRequestService = staffingRequestService;
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
     }
     
     @PostMapping
-    public ResponseEntity save(@Validated @RequestBody StaffingRequest staffingRequest) {
-        staffingRequestService.save(staffingRequest);
+    public ResponseEntity save(@Validated @RequestBody Account account) {
+        accountService.save(account);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
     
     @RequestMapping
     public ResponseEntity getAll() {
-        List<StaffingRequest> staffingRequests = staffingRequestService.getAll();
-        return new ResponseEntity<>(staffingRequests, HttpStatus.OK);
+        List<Account> accounts = accountService.getAll();
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 }

@@ -8,17 +8,14 @@ import javax.persistence.*;
 @Entity
 public class StaffingRequest {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     Project project;
     
     @Enumerated
     Role role;
-    
-    @ManyToOne(cascade=CascadeType.ALL)
-    Account account;
     
     @Enumerated
     Grade grade;
