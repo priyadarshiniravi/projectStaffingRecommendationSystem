@@ -3,6 +3,7 @@ package com.thoughtworks.models;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Entity
@@ -22,4 +23,7 @@ public class StaffingRequest {
     
     @Enumerated
     Location location;
+    
+    @ElementCollection
+    List<String> skillSet;
 }
