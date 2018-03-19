@@ -27,11 +27,11 @@ public class FilterListTest {
         Project project4 = mock(Project.class);
         when(project4.getName()).thenReturn("fell Proj 4");
         projects.addAll(asList(project, project1, project2, project3, project4));
-    
-        Filter<Project, String> filter = (proj, text) -> proj.getName().startsWith(String.valueOf(text));
-    
+        
+        Filter<Project, Object> filter = (object, criteria) -> object.getName().startsWith(String.valueOf(criteria[0]));
+        
         List filteredProjects = new FilterList().filterList(projects, filter, "Proj");
-    
+        
         assertThat(filteredProjects).containsExactly(project, project1, project2, project3);
     }
 }
