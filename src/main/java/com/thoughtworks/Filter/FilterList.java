@@ -1,18 +1,11 @@
 package com.thoughtworks.Filter;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FilterList<E> {
-    public <T> List filterList(List<T> originalList, Filter filter, E... text) {
-        List<T> filterList = new ArrayList<T>();
-        for (T object : originalList) {
-            if (filter.isMatched(object, text)) {
-                filterList.add(object);
-            } else {
-                continue;
-            }
-        }
+    public <T> List filterList(List<T> originalList, Filter filter, E... criteria) {
+        List<T> filterList = originalList.stream().filter(object -> filter.isMatched(object, criteria)).collect(Collectors.toList());
         return filterList;
     }
 }
