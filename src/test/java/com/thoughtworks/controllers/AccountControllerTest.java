@@ -2,9 +2,9 @@ package com.thoughtworks.controllers;
 
 import com.thoughtworks.models.Account;
 import com.thoughtworks.services.AccountService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +22,11 @@ public class AccountControllerTest {
     @Mock
     private AccountService accountService;
     
+    @InjectMocks
     private AccountController accountController;
     
     @Mock
     private Account account;
-    
-    @Before
-    public void setUp() throws Exception {
-        accountController = new AccountController(accountService);
-    }
     
     @Test
     public void shouldGetAllTheAccounts() throws Exception {

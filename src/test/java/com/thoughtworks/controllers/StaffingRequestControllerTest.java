@@ -2,9 +2,9 @@ package com.thoughtworks.controllers;
 
 import com.thoughtworks.models.StaffingRequest;
 import com.thoughtworks.services.StaffingRequestService;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.ResponseEntity;
@@ -22,15 +22,11 @@ public class StaffingRequestControllerTest {
     @Mock
     private StaffingRequestService staffingRequestService;
     
+    @InjectMocks
     private StaffingRequestController staffingRequestController;
     
     @Mock
     private StaffingRequest staffingRequest;
-    
-    @Before
-    public void setUp() throws Exception {
-        staffingRequestController = new StaffingRequestController(staffingRequestService);
-    }
     
     @Test
     public void shouldGetAllTheStaffingRequests() throws Exception {
