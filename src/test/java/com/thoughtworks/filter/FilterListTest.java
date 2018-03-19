@@ -1,4 +1,4 @@
-package com.thoughtworks.Filter;
+package com.thoughtworks.filter;
 
 import com.thoughtworks.models.Project;
 import org.junit.Test;
