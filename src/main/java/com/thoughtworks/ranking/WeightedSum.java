@@ -6,7 +6,7 @@ public class WeightedSum {
     
     private static final double DEFAULT_WEIGHTED_SUM = 0.0;
     
-    public static Double compute(List<Integer> data, List<Double> weights)
+    public static Double compute(List<Double> data, List<Double> weights)
     {
         Double weightSum = DEFAULT_WEIGHTED_SUM;
         if (data.size() == weights.size()) {
