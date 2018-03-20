@@ -5,5 +5,5 @@ import lombok.Getter;
 @Getter
 public class StaffSkillSet {
     String name;
-    Long rating;
+    Double rating;
 }
